@@ -86,65 +86,10 @@ html, body, #root {
   padding-right: env(safe-area-inset-right);
 }
 
-/* メインレイアウト：左にサイドバー、右にメイン画面を【常に横並び】に固定 */
-.layout-container {
-  display: flex !important;
-  flex-direction: row !important; 
-  height: 100vh !important;
-  width: 100% !important;
-}
-
-/* 左側：サイドバー（シナジー・情報） */
-.sp-left-sidebar {
-  width: 160px !important;
-  height: 100vh !important;
-  display: flex !important;
-  flex-direction: row !important;
-  background: var(--bg-sidebar);
-  border-right: 1px solid var(--border);
-  flex-shrink: 0;
-}
-
-/* 右側：メインエリア（トップバー＋盤面＋ショップ） */
-.sp-main-content {
-  flex: 1 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  height: 100vh !important;
-  width: calc(100vw - 160px) !important;
-  overflow: hidden !important;
-}
-
-/* -----------------------------------
-   🛒 ショップ領域の横向き特化カスタマイズ
-   ----------------------------------- */
-.sp-shop-area {
-  height: 110px !important;
-  display: flex !important;
-  flex-direction: row !important;
-  background: var(--bg-panel);
-  border-top: 2px solid var(--border);
-}
-
-.sp-shop-controls {
-  width: 120px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  gap: 4px !important;
-  padding: 0 8px !important;
-}
-
-.sp-shop-cards {
-  flex: 1 !important;
-  display: flex !important;
-  flex-direction: row !important;
-  gap: 4px !important;
-  padding: 8px 0 !important;
-}
-
-.sp-shop-card {
-  flex: 1 !important;
-  height: 100% !important;
-  min-width: 0 !important;
-}
+/* NOTE:
+   旧レイアウト用のクラス（.layout-container / .sp-left-sidebar /
+   .sp-main-content / .sp-shop-controls / .sp-shop-cards / .sp-shop-card）は
+   現在の app.js では使用しておらず、また .sp-shop-area への
+   height:110px !important がインラインの可変高さ（横向き108 / 通常140）を
+   上書きしていたため削除しました。
+   横向き時のサイズ調整は app.js 側の isLandscapeMobile で制御しています。 */
