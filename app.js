@@ -3527,7 +3527,7 @@ const handleAugmentPick = (aug, historyContext) => {
       }}>
         
         {/* 左側：シード値と今回の変動要素 */}
-        <div style={{ position: 'absolute', left: isLandscapeMobile ? 8 : 20, display: 'flex', alignItems: 'center', gap: 15 }}>
+        <div style={{ position: 'absolute', left: isLandscapeMobile ? 'max(8px, env(safe-area-inset-left))' : 20, display: 'flex', alignItems: 'center', gap: 15 }}>
           <div style={{ fontFamily: 'Orbitron', fontWeight: 900, fontSize: isLandscapeMobile ? 9 : 12, color: 'var(--textdim)', opacity: 0.6, letterSpacing: 1 }}>
             SEED: {seed}
           </div>
@@ -3653,7 +3653,7 @@ const handleAugmentPick = (aug, historyContext) => {
         </div>
 
         {/* 右側：ボタン類（横向きはアイコンのみで省スペース） */}
-        <div style={{ position: 'absolute', right: isLandscapeMobile ? 8 : 20, display: 'flex', alignItems: 'center', gap: isLandscapeMobile ? 6 : 10 }}>
+        <div style={{ position: 'absolute', right: isLandscapeMobile ? 'max(8px, env(safe-area-inset-right))' : 20, display: 'flex', alignItems: 'center', gap: isLandscapeMobile ? 6 : 10 }}>
 
           {freeRerolls > 0 && (
             <div style={{ background:'rgba(0,229,192,0.15)', border:'1px solid var(--teal)', borderRadius:4, padding:'4px 8px', fontSize:10, color:'var(--teal)', fontWeight:700 }}>
@@ -3684,7 +3684,7 @@ const handleAugmentPick = (aug, historyContext) => {
       {/* メインエリア */}
       <div style={{ flex:1, display:'flex', overflow:'hidden', position:'relative' }}>
         {/* 左サイドバー */}
-        <div style={{ display:'flex', background:'var(--bg-sidebar)', borderRight:'1px solid var(--border)', flexShrink:0 }}>
+        <div style={{ display:'flex', background:'var(--bg-sidebar)', borderRight:'1px solid var(--border)', flexShrink:0, paddingLeft:'env(safe-area-inset-left)' }}>
           <div className="sp-left-trait" style={{ width: isLandscapeMobile ? 110 : 150, padding: isLandscapeMobile ? 4 : 8, overflowY:'auto', borderRight:'1px solid rgba(30,45,74,.3)' }}>
             
             
@@ -3773,7 +3773,8 @@ const handleAugmentPick = (aug, historyContext) => {
           padding: isLandscapeMobile ? '8px 3px' : '15px 5px',
           gap: isLandscapeMobile ? 10 : 20,
           overflowY: 'auto',
-          flexShrink: 0
+          flexShrink: 0,
+          paddingRight: 'env(safe-area-inset-right)'
         }}>
           <div style={{ fontSize: 9, color: 'var(--gold2)', fontWeight: 900, marginBottom: 5, textAlign: 'center', fontFamily:'Noto Sans JP' }}>AUGMENTS</div>
           
@@ -3914,7 +3915,7 @@ const handleAugmentPick = (aug, historyContext) => {
       {/* ショップ */}
       {/* ショップエリア */}
      {/* 🌟 ショップ・NEXTボタン エリア 🌟 */}
-      <div className="sp-shop-area" style={{ height: isLandscapeMobile ? 108 : 140, background:'var(--bg-panel)', borderTop:'2px solid var(--border)', display:'flex', flexShrink:0, position: 'relative' }}>
+      <div className="sp-shop-area" style={{ height: isLandscapeMobile ? 108 : 140, background:'var(--bg-panel)', borderTop:'2px solid var(--border)', display:'flex', flexShrink:0, position: 'relative', paddingLeft:'env(safe-area-inset-left)', paddingRight:'env(safe-area-inset-right)' }}>
         
         {/* 左側〜中央：ショップ内容（ドロップ判定はここに残す） */}
         <div onDragOver={e => e.preventDefault()} onDrop={hDrop('shop', -1)} style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
